@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link rel="stylesheet" href="css/style.css"> -->
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    
+    <style>
+      @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      }
+
+      body {
+      background: #141414;
+      font-family: 'Open Sans', sans-serif;
+      }
+
+      .container {
+      width: 90%;
+      margin: 0;
+      }
+
+      nav .first-navbar{
+      margin-bottom: 0;
+      }
+
+      header {
+      padding: 0 0 20px 0;
+      }
+
+      header .container-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      margin-left: 104.5px;
+      }
+
+      header .logo {
+      font-family: 'Bebas Neue', cursive;
+      font-weight: normal;
+      color: #E50914;
+      font-size: 40px;
+      float: left;
+      }
+      header nav a {
+      color: #AAA;
+      text-decoration: none;
+      margin-right: 20px;
+      }
+
+      header nav a:hover,
+      header nav a.active{
+      color : black;
+      text-decoration: none;
+      }
+
+
+      /*main Carousel Slider*/
+
+      #myCarousel .carousel-caption {
+        left:0;
+      right:0;
+      bottom:0;
+      text-align:left;
+      padding:10px;
+      background:rgba(0,0,0,0.6);
+      text-shadow:none;
+      }
+      #myCarousel img{
+      height: 60vh;
+      width: 100%;
+      }
+      #myCarousel .list-group {
+      position:absolute;
+      top:0;
+      right:0;
+      }
+      #myCarousel .list-group-item {
+      border-radius:0px;
+      cursor:pointer;
+      }
+      #myCarousel .list-group .active {
+      background-color:#eee;	
+      }
+
+      @media (min-width: 992px) { 
+      #myCarousel {padding-right:33.3333%;}
+      #myCarousel .carousel-controls {display:none;} 	
+      }
+      @media (max-width: 991px) { 
+      .carousel-caption p,
+      #myCarousel .list-group {display:none;} 
+      }
+
+
+      /* ---- ----- ----- container Principal ----- ----- ----- */
+      .container-principal {
+      margin-bottom: 3.12em;
+      align-items: end;
+      }
+
+      .container {
+      margin: 0 auto;
+      }
+
+      .container-principal {
+      background: rgba(0,0,0, 0.5);
+      border: none;
+      border-radius: 0.31em;
+      padding: 0.93em 1.87em;
+      color: #fff;
+      margin-right: 1.25em;
+      margin-left: 1.25em;
+      cursor: pointer;
+      transition: 0.3s ease all;
+      font-size: 1.12em;
+      }
+
+      .container-principal i {
+      margin-right: 1.25em;
+      }
+
+      /* ---- ----- ----- container title Controles ----- ----- ----- */
+      .container-title-controles {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      }
+
+      .container-title-controles h3 {
+      padding: 20px;
+      color: red;
+      font-size: 30px;
+      }
+
+      .container-title-controles .indicator button {
+      background: darkgray;
+      height: 3px;
+      width: 10px;
+      cursor: pointer;
+      border: none;
+      margin-right: 2px;
+      margin-top:40px;
+      }
+
+      .container-title-controles .indicator button:hover,
+      .container-title-controles .indicator button.active {
+      background: red;
+      }
+
+
+      /* ---- ----- ----- container Principal properties ----- ----- ----- */
+      .movies-recommends {
+      margin-bottom: 50px;
+      }
+
+      .movies-recommends .container-principal {
+      display: flex;
+      align-items: center;
+      position: relative;
+      }
+
+      .movies-recommends .container-principal .btn-left,
+      .movies-recommends .container-principal .btn-right {
+      position: absolute;
+      border: none;
+      background: rgba(0,0,0,0.3);
+      font-size: 40px;
+      height: 50%;
+      top: calc(50% - 25%);
+      line-height: 40px;
+      width: 50px;
+      color: #fff;
+      cursor: pointer;
+      z-index: 500;
+      transition: .2s ease all;
+      }
+
+      .movies-recommends .container-principal .btn-left:hover,
+      .movies-recommends .container-principal .btn-right:hover {
+      background: rgba(0,0,0, .9);
+      }
+
+      .movies-recommends .container-principal .btn-left {
+      left: 0;
+      }
+
+      .movies-recommends .container-principal .btn-right {
+      right: 0;
+      }
+
+      /* ---- ----- ----- Carousel ----- ----- ----- */
+      .movies-recommends .container-carousel {
+      width: 100%;
+      padding: 20px 0;
+      overflow: hidden;
+      scroll-behavior: smooth;
+      }
+
+      .movies-recommends .container-carousel .carousel {
+      display: flex;
+      flex-wrap: nowrap;
+      }
+      /*.container-carousel */
+      .movies-recommends .container-carousel .carousel .carousel-img {
+      min-width: 20%;
+      transition: .3s ease all;
+      box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+      }
+
+      .movies-recommends .container-carousel .carousel .carousel-img.hover {
+      transform: scale(1.3);
+      transform-origin: center;
+      }
+
+      .movies-recommends .container-carousel .carousel .carousel-img img {
+      width: 100%;
+      vertical-align: top;
+      }
+
+      /* ---- ----- ----- Media Queries ----- ----- ----- */
+      @media screen and (max-width: 800px) {
+      header .logo {
+        margin-bottom: 10px;
+        font-size: 30px;
+      }
+
+      header .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .container-principal {
+        font-size: 14px;
+      }
+
+      .movies-recommends .container-carousel {
+        overflow: visible;
+      }
+
+      .movies-recommends .container-carousel .carousel {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .movies-recommends .indicator,
+      .movies-recommends .btn-left,
+      .movies-recommends .btn-right {
+        display: none;
+      }
+      }
+
+
+
+      /*Grid section third Section*/
+      .section-popular{
+      border: 1px solid #E1E1E1;
+        border-radius: 7px;
+      background-color: darkgray;
+      height: 560px;
+      width: 90%;
+      margin: auto;
+      margin-bottom: 10px;
+      }
+
+      .section-features{
+      border: 1px solid #E1E1E1;
+        border-radius: 7px;
+      /*	border-left: 10px;*/
+      background-color: darkgray;
+      height: 75vh;
+      width: 90%;
+      margin: auto;
+      margin-bottom: 10px;
+      }
+
+      .section-features__heading{
+      /*	margin-left: auto;*/
+      padding-left: 30px;
+      padding-right: 30px;
+
+      }
+
+      .sectiion-feature__btn-carousel{
+      float: right;
+      line-height: 40px;
+      }
+
+      .col-item{
+        border: 1px solid #E1E1E1;
+        border-radius: 5px;
+        background: #FFF;
+      }
+
+      .col-item .photo img{
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .col-item .info{
+        padding: 10px;
+        border-radius: 0 0 5px 5px;
+        margin-top: 1px;
+      }
+
+      .col-item:hover .info {
+        background-color: #F5F5DC;
+      }
+
+      .col-item .info .rating{
+        color: #777;
+      }
+
+      .col-item .rating{
+        /*width: 50%;*/
+        float: left;
+        font-size: 17px;
+        text-align: right;
+        line-height: 52px;
+        margin-bottom: 10px;
+        height: 52px;
+      }
+
+      .col-item .separator{
+        border-top: 1px solid #E1E1E1;
+      }
+
+      .clear-left{
+        clear: left;
+      }
+
+      .col-item .separator p{
+        line-height: 20px;
+        margin-bottom: 0;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      .col-item .separator p i{
+        margin-right: 5px;
+      }
+
+      .col-item .btn-add{
+        width: 50%;
+        float: left;
+      }
+
+      .col-item .btn-add{
+        border-right: 1px solid #E1E1E1;
+      }
+
+      .col-item .btn-details{
+        width: 50%;
+        float: left;
+        padding-left: 10px;
+      }
+
+      .controls{
+        margin-top: 20px;
+      }
+
+      [data-slide="prev"]{
+        margin-right: 10px;
+      }
+
+
+
+
+      /*Footer css*/
+      body { color: #ccc }
+      .footer-widget p {
+        margin-bottom: 27px;
+      }
+      p {
+        font-family: 'Nunito', sans-serif;
+        font-size: 16px;
+        line-height: 28px;
+      }
+
+      .animate-border {
+      position: relative;
+      display: block;
+      width: 115px;
+      height: 3px;
+      background: #007bff; }
+
+      .animate-border:after {
+      position: absolute;
+      content: "";
+      width: 35px;
+      height: 3px;
+      left: 0;
+      bottom: 0;
+      border-left: 10px solid #fff;
+      border-right: 10px solid #fff;
+      -webkit-animation: animborder 2s linear infinite;
+      animation: animborder 2s linear infinite; }
+
+      @-webkit-keyframes animborder {
+      0% {
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px); }
+      100% {
+        -webkit-transform: translateX(113px);
+        transform: translateX(113px); } 
+      }
+
+      @keyframes animborder {
+      0% {
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px); }
+      100% {
+        -webkit-transform: translateX(113px);
+        transform: translateX(113px); } 
+      }
+
+      .animate-border.border-white:after {
+      border-color: #fff; }
+
+      .animate-border.border-yellow:after {
+      border-color: #F5B02E; }
+
+      .animate-border.border-orange:after {
+      border-right-color: #007bff;
+      border-left-color: #007bff; }
+
+      .animate-border.border-ash:after {
+      border-right-color: #EEF0EF;
+      border-left-color: #EEF0EF; }
+
+      .animate-border.border-offwhite:after {
+      border-right-color: #F7F9F8;
+      border-left-color: #F7F9F8; }
+
+      /* Animated heading border */
+      @keyframes primary-short {
+      0% {
+        width: 15%; }
+      50% {
+        width: 90%; }
+      100% {
+        width: 10%; } }
+
+      @keyframes primary-long {
+      0% {
+        width: 80%; }
+      50% {
+        width: 0%; }
+      100% {
+        width: 80%; } } 
+
+      .dk-footer {
+      padding: 75px 0 0;
+      background-color: #151414;
+      position: relative;
+      z-index: 2; 
+      }
+      .dk-footer .contact-us 
+      {
+      margin-top: 0;
+      margin-bottom: 30px;
+      padding-left: 80px; 
+      }
+      .dk-footer .contact-us .contact-info {
+      margin-left: 50px; 
+      }
+      .dk-footer .contact-us.contact-us-last {
+      margin-left: -80px; 
+      }
+      .dk-footer .contact-icon i {
+      font-size: 24px;
+      top: -15px;
+      position: relative;
+      color:#007bff; 
+      }
+
+      .dk-footer-box-info {
+      position: absolute;
+      top: -122px;
+      background: #202020;
+      padding: 40px;
+      z-index: 2; }
+      .dk-footer-box-info .footer-social-link h3 {
+      color: #fff;
+      font-size: 24px;
+      margin-bottom: 25px; }
+      .dk-footer-box-info .footer-social-link ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0; }
+      .dk-footer-box-info .footer-social-link li {
+      display: inline-block; }
+      .dk-footer-box-info .footer-social-link a i {
+      display: block;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      background: #000;
+      margin-right: 5px;
+      color: #fff; }
+      .dk-footer-box-info .footer-social-link a i.fa-facebook {
+      background-color: #3B5998; }
+      .dk-footer-box-info .footer-social-link a i.fa-twitter {
+      background-color: #55ACEE; }
+      .dk-footer-box-info .footer-social-link a i.fa-google-plus {
+      background-color: #DD4B39; }
+      .dk-footer-box-info .footer-social-link a i.fa-linkedin {
+      background-color: #0976B4; }
+      .dk-footer-box-info .footer-social-link a i.fa-instagram {
+      background-color: #B7242A; }
+
+      .footer-awarad {
+      margin-top: 285px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 100%;
+      -moz-box-flex: 0;
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -moz-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .footer-awarad p {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      margin-left: 20px;
+      padding-top: 15px; }
+
+      .footer-info-text {
+      color:white;
+      margin: 26px 0 32px; }
+
+      .footer-left-widget {
+      padding-left: 80px; }
+
+      .footer-widget .section-heading {
+      margin-bottom: 35px; }
+      .footer-widget p {
+      color: #fff;
+      }
+
+      .footer-widget h3 {
+      font-size: 24px;
+      color: #fff;
+      position: relative;
+      margin-bottom: 15px;
+      max-width: -webkit-fit-content;
+      max-width: -moz-fit-content;
+      max-width: fit-content; }
+
+      .footer-widget ul {
+      width: 50%;
+      float: left;
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+
+      .footer-widget li {
+      margin-bottom: 18px; }
+
+      .footer-widget p {
+      margin-bottom: 27px; }
+
+      .footer-widget a {
+      color: #878787;
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s; }
+      .footer-widget a:hover {
+        color: #007bff; }
+
+      .footer-widget:after {
+      content: "";
+      display: block;
+      clear: both; }
+
+      .dk-footer-form {
+      position: relative; }
+      .dk-footer-form input[type=email] {
+      padding: 14px 28px;
+      border-radius: 50px;
+      background: #2E2E2E;
+      border: 1px solid #2E2E2E; }
+      .dk-footer-form input::-webkit-input-placeholder, .dk-footer-form input::-moz-placeholder, .dk-footer-form input:-ms-input-placeholder, .dk-footer-form input::-ms-input-placeholder, .dk-footer-form input::-webkit-input-placeholder {
+      color: #878787;
+      font-size: 14px; }
+      .dk-footer-form input::-webkit-input-placeholder, .dk-footer-form input::-moz-placeholder, .dk-footer-form input:-ms-input-placeholder, .dk-footer-form input::-ms-input-placeholder, .dk-footer-form input::placeholder {
+      color: #878787;
+      font-size: 14px; }
+      .dk-footer-form button[type=submit] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 12px 24px 12px 17px;
+      border-top-right-radius: 25px;
+      border-bottom-right-radius: 25px;
+      border: 1px solid #007bff;
+      background: #007bff;
+      color: #fff; }
+      .dk-footer-form button:hover {
+      cursor: pointer; }
+
+      /* ==========================
+
+        Contact
+
+      =============================*/
+      .contact-us {
+      position: relative;
+      z-index: 2;
+      margin-top: 65px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -moz-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+
+      .contact-icon {
+      position: absolute; }
+      .contact-icon i {
+        font-size: 36px;
+        top: -5px;
+        position: relative;
+        color: #007bff; }
+
+      .contact-info {
+      margin-left: 75px;
+      color: #fff; }
+      .contact-info h3 {
+        font-size: 20px;
+        color: #fff;
+        margin-bottom: 0; }
+
+      .copyright {
+      padding: 28px 0;
+      margin-top: 55px;
+      background-color: #202020; }
+      .copyright span,
+      .copyright a {
+        color: #878787;
+        -webkit-transition: all 0.3s linear;
+        -o-transition: all 0.3s linear;
+        transition: all 0.3s linear; }
+      .copyright a:hover {
+        color:#007bff; }
+
+      .copyright-menu ul {
+      text-align: right;
+      margin: 0; }
+
+      .copyright-menu li {
+      display: inline-block;
+      padding-left: 20px; }
+
+      .back-to-top {
+      position: relative;
+      z-index: 2; }
+      .back-to-top .btn-dark {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        padding: 0;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #2e2e2e;
+        border-color: #2e2e2e;
+        display: none;
+        z-index: 999;
+        -webkit-transition: all 0.3s linear;
+        -o-transition: all 0.3s linear;
+        transition: all 0.3s linear; }
+        .back-to-top .btn-dark:hover {
+          cursor: pointer;
+          background: #FA6742;
+          border-color: #FA6742; }
+      /*top bar*/
+
+      .top-bar {
+        background: #555;
+        color: #fff;
+        font-size: 0.9rem;
+        padding: 10px 0;
+      }
+
+      .top-bar .contact-info {
+        margin-right: 20px;
+      }
+
+      .top-bar ul {
+        margin-bottom: 0;
+      }
+
+      .top-bar .contact-info a {
+        font-size: 0.8rem;
+      }
+
+      .top-bar ul.social-custom {
+        margin-left: 20px;
+      }
+      .top-bar ul {
+        margin-bottom: 0;
+      }
+
+      .top-bar a.login-btn i, .top-bar a.signup-btn i {
+        margin-right: 10px;
+      }
+
+      .top-bar ul.social-custom a:hover {
+        background: #4fbfa8;
+        color: #fff;
+      }
+      .top-bar ul.social-custom a {
+        text-decoration: none !important;
+        font-size: 0.7rem;
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+        color: #999;
+        text-align: center;
+        border-radius: 50%;
+        margin: 0;
+      }
+      a:focus, a:hover {
+        color: #348e7b;
+        text-decoration: underline;
+      }
+      .top-bar a.login-btn, .top-bar a.signup-btn {
+        color: #eee;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        text-decoration: none !important;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-right: 10px;
+      }
+      /*end*/
+
+
+
+    </style>
+	
+	<title>Movies</title>
+</head>
+<body>
+	<!--Top Main Nav-bar-->
+     <nav class="navbar navbar-expand-sm first-navbar navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse first__navbar navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+				<a class="nav-link" href="#">Movies<span class="sr-only">(current)</span></a>
+			</li>
+		    <li class="nav-item">
+			<a class="nav-link" href="#">Contact Us</a>
+		    </li>
+          </ul>
+         <div class="social-part">
+			  <a class="nav-item" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			  <a class="nav-item" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			  <a class="nav-item" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </nav>
+	
+	<!--Top Header-->
+	<header>
+		<div class="container-header">
+			<a href="/"><h2 class="logo active">Movies</h2></a>
+			<nav>
+<!--				<a href="#" class="activo">Home</a>-->
+				<a href="#">Wishlist</a>
+				<a href="#">Login</a>
+				<a href="#">Sign Up</a>
+			</nav>
+		</div>
+	</header>
+	
+	<!--Main Body content-->
+	<main>
+		
+<!--		main page Movies Viewer-->
+        <div class="container">
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+              <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              {%MAINCAROUSEL_CARDS%}
+            </div><!-- End Carousel Inner -->
+
+
+            <ul class="list-group col-sm-4">
+              {%MAINCAROUSEL_CARDS_NAV%}
+            </ul>
+
+              <!-- Controls -->
+              <div class="carousel-controls">
+                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                  </a>
+                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                  </a>
+              </div>
+
+            </div><!-- End Carousel -->
+        </div>
+        
+		
+		
+<!--		Movies_image Slider-->
+<!--		Recommended image Slider-->		
+		<div class="movies-recommends">
+			<div class="container-title-controles">
+				<h3>Recommended Movies</h3>
+				<div class="indicator"></div>
+			</div>
+
+			<div class="container-principal">
+				<button role="button" id="btn-left" class="btn-left"><i class="fas fa-angle-left"></i></button>
+
+				<div class="container-carousel">
+					<div class="carousel">
+            {%RECOMMEND_CARDS_IMG%}
+            {%RECOMMEND_CARDS_IMG%}
+            {%RECOMMEND_CARDS_IMG%}
+					</div>
+				</div>
+				<button role="button" id="btn-right" class="btn-right"><i class="fas fa-angle-right"></i></button>
+			</div>
+		</div>
+		
+<!--		Second Section-->
+        <div class="section section-features">
+			<div class="row section-features__heading">
+				<div class="col-md-12">
+					<div><h3>
+						Featured Movies</h3></div>
+					<div><h5>
+						This week's top Movies</h5></div>
+				</div>
+			</div>
+			<div class="container container-carousel">
+				<div class="row">
+					<div class="row">
+						<div class="col-sm-12 ">
+							<!-- Controls -->
+							<div class="controls pull-right hidden-xs section-feature__btn-carousel">
+								<a class="left fa fa-chevron-left btn btn-success" href="#carousel-example"
+									data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-example"
+										data-slide="next"></a>
+							</div>
+						</div>
+					</div>
+					<div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner">
+							<!-- <div class="item active">
+								<div class="row">
+									<div class="col-sm-3 ">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															X-Man</h5>
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+													</div>
+													<div class="rating hidden-sm col-md-6">
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+              </div> -->
+              {%FEATURING_MOVIE_CARDS%}
+							<!-- <div class="item">
+								<div class="row">
+									<div class="col-sm-3">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Wishlist</h5>
+													</div>
+													<div class="rating hidden-sm col-md-6">
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<!--		Third Section-->
+		<div class="section section-popular">
+			<div class="row section-features__heading">
+				<div class="col-md-12">
+					<div><h3>
+						Popular Movies</h3></div>
+					<div><h5>
+						This week's top Movies</h5></div>
+				</div>
+			</div>
+			<div class="container container-carousel">
+				<div class="row">
+					<div class="row">
+						<div class="col-sm-12">
+							<!-- Controls -->
+							<div class="controls pull-right hidden-xs">
+								<a class="left fa fa-chevron-left btn btn-primary" href="#carousel-example-generic"
+									data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-primary" href="#carousel-example-generic"
+										data-slide="next"></a>
+							</div>
+						</div>
+					</div>
+					<div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel">
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner">
+							{%POPULAR_MOVIE_CARDS%}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+	
+    
+    
+    
+    
+    
+    <footer id="dk-footer" class="dk-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-4">
+                    <div class="dk-footer-box-info">
+                        <a href="index.html" class="footer-logo">
+                            <img src="images/footer_logo.png" alt="footer_logo" class="img-fluid">
+                        </a>
+                        <p class="footer-info-text">
+                          Movies currently in theaters near you. Sort by critic rating, get movie times, buy tickets and watch trailers and interviews.
+                        </p>
+                        <div class="footer-social-link">
+                            <h3>Follow us</h3>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- End Social link -->
+                    </div>
+                    <!-- End Footer info -->
+                    <div class="footer-awarad">
+                        <img src="images/icon/best.png" alt="">
+                        <p>Best Movies Company 2020</p>
+                    </div>
+                </div>
+                <!-- End Col -->
+                <div class="col-md-12 col-lg-8">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="contact-us">
+                                <div class="contact-icon">
+                                    <i class="fa fa-map-o" aria-hidden="true"></i>
+                                </div>
+                                <!-- End contact Icon -->
+                                <div class="contact-info">
+                                    <h3>University</h3>
+                                    <p>Administration</p>
+                                </div>
+                                <!-- End Contact Info -->
+                            </div>
+                            <!-- End Contact Us -->
+                        </div>
+                        <!-- End Col -->
+                        <div class="col-md-6">
+                            <div class="contact-us contact-us-last">
+                                <div class="contact-icon">
+                                    <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                                </div>
+                                <!-- End contact Icon -->
+                                <div class="contact-info">
+                                    <h3>+1(613)XXX-XXXX</h3>
+                                    <p>Give us a call</p>
+                                </div>
+                                <!-- End Contact Info -->
+                            </div>
+                            <!-- End Contact Us -->
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Contact Row -->
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            <div class="footer-widget footer-left-widget">
+                                <div class="section-heading">
+                                    <h3>Useful Links</h3>
+                                    <span class="animate-border border-black"></span>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="#">About us</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Faq</a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="#">Contact us</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                            <!-- End Footer Widget -->
+                        </div>
+                        <!-- End col -->
+                        <div class="col-md-12 col-lg-6">
+                            <div class="footer-widget">
+                                <div class="section-heading">
+                                    <h3>Subscribe</h3>
+                                    <span class="animate-border border-black"></span>
+                                </div>
+                                <p><!-- Don't miss to subscribe to our new feeds, kindly fill the form below. -->
+                                ind movies currently in theaters near you. Sort by critic rating, get movie times, buy tickets and watch trailers and interviews.</p>
+                                <form action="#">
+                                    <div class="form-row">
+                                        <div class="col dk-footer-form">
+                                            <input type="email" class="form-control" placeholder="Email Address">
+                                            <button type="submit">
+                                                <i class="fa fa-send"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- End form -->
+                            </div>
+                            <!-- End footer widget -->
+                        </div>
+                        <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                </div>
+                <!-- End Col -->
+            </div>
+            <!-- End Widget Row -->
+        </div>
+        <!-- End Contact Container -->
+
+
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span>Copyright � 2020, All Right Reserved.</span>
+                    </div>
+                    <!-- End Col -->
+                    <div class="col-md-6">
+                        <div class="copyright-menu">
+                            <ul>
+                                <li>
+                                    <a href="#">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#">Terms</a>
+                                </li>
+                                <li>
+                                    <a href="#">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End col -->
+                </div>
+                <!-- End Row -->
+            </div>
+            <!-- End Copyright Container -->
+        </div>
+        <!-- End Copyright -->
+        <!-- Back to top -->
+        <div id="back-to-top" class="back-to-top">
+            <button class="btn btn-dark" title="Back to Top" style="display: block;">
+                <i class="fa fa-angle-up"></i>
+            </button>
+        </div>
+        <!-- End Back to top -->
+</footer>
+    
+	
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+  <!-- <script src="js/main.js"></script> -->
+  <script>    
+    const file = document.querySelector('.container-carousel');
+    const carouselImg = document.querySelectorAll('.carousel-img');
+    const BtnLeft = document.getElementById('btn-left');
+    const BtnRight = document.getElementById('btn-right');
+
+    // ? ----- ----- Event Listener for Button Right in carousle. ----- -----
+    BtnRight.addEventListener('click', () => {
+      file.scrollLeft += file.offsetWidth;
+
+      const indicatorActive = document.querySelector('.indicator .active');
+      if(indicatorActive.nextSibling){
+        indicatorActive.nextSibling.classList.add('active');
+        indicatorActive.classList.remove('active');
+      }
+    });
+
+    // ? ----- ----- Event Listener for Button left In carousle. ----- -----
+    BtnLeft.addEventListener('click', () => {
+      file.scrollLeft -= file.offsetWidth;
+
+      const indicatorActive = document.querySelector('.indicator .active');
+      if(indicatorActive.previousSibling){
+        indicatorActive.previousSibling.classList.add('active');
+        indicatorActive.classList.remove('active');
+      }
+    });
+
+    // ? ----- ----- Pagination ----- -----
+    const numbersPag = Math.ceil(carouselImg.length / 5);
+    for(let i = 0; i < numbersPag; i++){
+      const indicator = document.createElement('button');
+
+      if(i === 0){
+        indicator.classList.add('active');
+      }
+
+      document.querySelector('.indicator').appendChild(indicator);
+      indicator.addEventListener('click', (e) => {
+        file.scrollLeft = i * file.offsetWidth;
+
+        document.querySelector('.indicator .active').classList.remove('active');
+        e.target.classList.add('active');
+      });
+    }
+
+    // ? ----- ----- Hover ----- -----
+    carouselImg.forEach((carouImg) => {
+      carouImg.addEventListener('mouseenter', (e) => {
+        const element = e.currentTarget;
+        setTimeout(() => {
+          carouselImg.forEach(carouImg => carouImg.classList.remove('hover'));
+          element.classList.add('hover');
+        }, 300);
+      });
+    });
+
+    file.addEventListener('mouseleave', () => {
+      carouselImg.forEach(carouImg => carouImg.classList.remove('hover'));
+    });
+    </script>
+    
+</body>
+</html>

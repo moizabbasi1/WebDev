@@ -1,0 +1,24 @@
+extends base
+
+include _sidebarUser
+
+block extrastuff
+  link(rel="stylesheet" href="./../user/style.css")
+  link(rel="stylesheet" href= "./../login/style.css")
+  
+block content
+  .container
+    .row.profile
+      .col-md-3
+        +sidebar(user)
+          
+      .col-md-9
+        main.main
+          .login-form
+            h2.heading-secondary.ma-bt-lg Enter the User Name Whom you Wanna Update
+            form.form.searchUser(action='/search-data' method='POST')
+              .form__group
+                label.form__label(for='name') User Name
+                input#name.form__input(type='name', placeholder='Moiz Raza', required, name= 'name')
+              .form__group
+                button.btn.btn--green Search

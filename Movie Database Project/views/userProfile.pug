@@ -1,0 +1,99 @@
+extends base
+
+include _sidebarUser 
+
+
+block extrastuff
+  link(rel="stylesheet" href="./../user/style.css")
+  link(rel="stylesheet" href= "./../login/style.css")
+
+block content
+  .container
+    .row.profile
+      .col-md-3
+        +sidebar(userSearch)
+        
+      .col-md-9
+        .profile-content
+          .div(id='overview')
+            h2 Bio
+            p #{userSearch.about}
+          .personal-detail
+            h5 Born:
+            .time
+              a(href="#") #{userSearch.DOB}
+              text(style="text-transform: none;") in
+              a(href="#" style="text-decoration: none;text-transform: none;") #{userSearch.city} , #{userSearch.country}
+          .div
+            h2 User Reviews:
+          .div(id='reviews')
+            .section.section-reviews
+              .reviews
+                - if(userSearch.reviews.length === 0)
+                  p Not Reviewed any Movie Yet.
+                - else
+                  each review in userSearch.reviews
+                    .reviews__card
+                      .reviews__avatar
+                        img.reviews__avatar-img.avatar.avatar-online(src=`https://bootdey.com/img/Content/avatar/avatar1.png`, alt=`${review.user.name} photo`)
+                        h6.reviews__user #{review.user.name}
+                      p.reviews__text #{review.review}
+          .movies-recommends(id='watch')
+            .container-title-controles
+              h3 Watch Movies list
+              .indicator
+            .container-principal
+              button.btn-left(role="button" id="btn-left")
+                i.fas.fa-angle-left
+              .container-carousel
+                .carousel
+                  each movie in userSearch.wishList
+                    .carousel-img
+                      a(href=`/movie/${movie.slug}`)
+                        img(src= `${movie.poster}` alt= `Title Photo`)
+              button.btn-right(role="button" id="btn-right")
+                i.fas.fa-angle-right    
+          
+          .line &nbsp;
+          
+          .container(id='follower')
+            .row
+              .col-md-8.col-xs-12
+                .panel(id="followers")
+                  .panel-heading
+                    h3.panel-title
+                      i.icon.md-check(aria-hidden="true") Followers
+                  .panel-body
+                    ul.list-group.list-group-dividered.list-group-full
+                      each follower in userSearch.followers
+                        li.list-group-item
+                          .media
+                            .media-left
+                              a.avatar.avatar-online(href=`/user/${follower.slug}`)
+                                img(src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="")
+                                i
+                            .media-body
+                              div
+                                a.name(href=`/user/${follower.slug}`) #{follower.name}
+                              small #{follower.email}   
+          .line &nbsp;
+          .container(id='followings')
+            .row
+              .col-md-8.col-xs-12
+                .panel(id="followers")
+                  .panel-heading
+                    h3.panel-title
+                      i.icon.md-check(aria-hidden="true") Followings
+                  .panel-body
+                    ul.list-group.list-group-dividered.list-group-full
+                      each following in userSearch.following
+                        li.list-group-item
+                          .media
+                            .media-left
+                              a.avatar.avatar-online(href=`/user/${following.slug}`)
+                                img(src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="")
+                                i
+                            .media-body
+                              div
+                                a.name(href=`/user/${following.slug}`) #{following.name}
+                              small #{following.email}

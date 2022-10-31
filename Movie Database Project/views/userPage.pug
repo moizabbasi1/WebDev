@@ -1,0 +1,157 @@
+extends base
+
+include _sidebarUser 
+
+
+block extrastuff
+  link(rel="stylesheet" href="./../user/style.css")
+  link(rel="stylesheet" href= "./../login/style.css")
+
+block content
+  .container
+    .row.profile
+      .col-md-3
+        +sidebar(user)
+        
+      .col-md-9
+        .profile-content
+          .div(id='overview')
+            h2 Bio
+            p #{user.about}
+          .personal-detail
+            h5 Born:
+            .time
+              a(href="#") #{user.DOB}
+              text(style="text-transform: none;") in
+              a(href="#" style="text-decoration: none;text-transform: none;") #{user.city} , #{user.country}
+          .div
+            h2 User Reviews:
+          .div(id='reviews')
+            .section.section-reviews
+              .reviews
+                - if(user.reviews.length === 0)
+                  p Not Reviewed any Movie Yet.
+                - else
+                  each review in user.reviews
+                    .reviews__card
+                      .reviews__avatar
+                        img.reviews__avatar-img.avatar.avatar-online(src=`https://bootdey.com/img/Content/avatar/avatar1.png`, alt=`${review.user.name} photo`)
+                        h6.reviews__user #{review.user.name}
+                      p.reviews__text #{review.review}
+          .movies-recommends(id='watch')
+            .container-title-controles
+              h3 Watch Movies list
+              .indicator
+            .container-principal
+              button.btn-left(role="button" id="btn-left")
+                i.fas.fa-angle-left
+              .container-carousel
+                .carousel
+                  each movie in user.wishList
+                    .carousel-img
+                      a(href=`/movie/${movie.slug}`)
+                        img(src= `${movie.poster}` alt= `Title Photo`)
+              button.btn-right(role="button" id="btn-right")
+                i.fas.fa-angle-right    
+          .user-view__content(id='setting')
+            .user-view__form-container
+                h2.heading-secondary.ma-bt-md Your account settings
+                //- witout Api 
+                //- form.form.form-user-data(action='/submit-user-data' method='POST')
+                
+                //- With Api 
+                form.form.form-user-data
+                
+                  .form__group
+                    label.form__label(for='name') Name
+                    input#name.form__input(type='text', value=`${user.name}`, required, name= 'name')
+                  .form__group.ma-bt-md
+                    label.form__label(for='email') Email address
+                    input#email.form__input(type='email', value=`${user.email}`, required, name= 'email')
+                  .form__group.ma-bt-md
+                    label.form__label(for='role') Change Role
+                    input#role.form__input(type='text', value=`${user.role}`, required, name= 'role')
+                  //- .form__group.form__photo-upload
+                  //-     img.form__user-photo(src=`img/users/${user.photo}`, alt='User photo')
+                  //-     a.btn-text(href='') Choose new photo
+                  .form__group.right
+                    button.btn.btn--small.btn--green Save settings
+                    
+            .line &nbsp;
+            .user-view__form-container
+                h2.heading-secondary.ma-bt-md Password change
+                form.form.form-user-settings
+                  .form__group
+                    label.form__label(for='password-current') Current password
+                    input#password-current.form__input(type='password', placeholder='••••••••', required, minlength='8')
+                  .form__group
+                    label.form__label(for='password') New password
+                    input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+                  .form__group.ma-bt-lg
+                    label.form__label(for='password-confirm') Confirm password
+                    input#password-confirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
+                  .form__group.right
+                    button.btn.btn--small.btn--green Save password
+          .line &nbsp;
+          
+          .container(id='follower')
+            .row
+              .col-md-8.col-xs-12
+                .panel(id="followers")
+                  .panel-heading
+                    h3.panel-title
+                      i.icon.md-check(aria-hidden="true") Followers
+                  .panel-body
+                    ul.list-group.list-group-dividered.list-group-full
+                      each follower in user.followers
+                        li.list-group-item
+                          .media
+                            .media-left
+                              a.avatar.avatar-online(href=`/users/${follower.slug}`)
+                                img(src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="")
+                                i
+                            .media-body
+                              div
+                                a.name(href=`/users/${follower.slug}`) #{follower.name}
+                              small #{follower.email}   
+          .line &nbsp;
+          .container(id='followings')
+            .row
+              .col-md-8.col-xs-12
+                .panel(id="followers")
+                  .panel-heading
+                    h3.panel-title
+                      i.icon.md-check(aria-hidden="true") Followings
+                  .panel-body
+                    ul.list-group.list-group-dividered.list-group-full
+                      each following in user.following
+                        li.list-group-item
+                          .media
+                            .media-left
+                              a.avatar.avatar-online(href=`/users/${following.slug}`)
+                                img(src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="")
+                                i
+                            .media-body
+                              div
+                                a.name(href=`/users/${following.slug}`) #{following.name}
+                              small #{following.email}                   
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+                       
+              
+              
+          
+          
+          
+          

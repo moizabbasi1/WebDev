@@ -1,0 +1,45 @@
+[
+    {
+      "_id": "5c8a34ed14eb5c17645c9108",
+      "review": "Great Movie",
+      "rating": 9,
+      "user": "5c8a1dfa2f8fb814b56fa181",
+      "movie": "5fc7b1143e05c02518018b97"
+    },
+    {
+      "_id": "5c8a355b14eb5c17645c9109",
+      "review": "Perfect!",
+      "rating": 9,
+      "user": "5c8a1dfa2f8fb814b56fa181",
+      "movie": "5fc7b1143e05c02518018b98"
+    },
+    {
+      "_id": "5c8a359914eb5c17645c910a",
+      "review": "Great Movie!",
+      "rating": 8,
+      "user": "5c8a1dfa2f8fb814b56fa181",
+      "movie": "5fc7b1143e05c02518018b9d"
+    },
+    {
+      "_id": "5c8a35b614eb5c17645c910b",
+      "review": "Great Movie.",
+      "rating": 7,
+      "user": "5c8a1dfa2f8fb814b56fa181",
+      "movie": "5fc7b1143e05c02518018b96"
+    },
+    {
+      "_id": "5c8a364c14eb5c17645c910c",
+      "review": "Good Acting!",
+      "rating": 8,
+      "user": "5c8a1e1a2f8fb814b56fa182",
+      "movie": "5fc7b1143e05c02518018b94"
+    },
+    {
+      "_id": "5c8a3e63e12c44188b4dbc5b",
+      "review": "Bad Movie, Acting wasn't good!",
+      "rating": 3,
+      "user": "5c8a24a02f8fb814b56fa193",
+      "movie": "5fc7b1143e05c02518018b9a"
+    }
+  ]
+  

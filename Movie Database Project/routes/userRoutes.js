@@ -1,0 +1,36 @@
+const express = require('express');
+const userController = require('../controllers/userController');
+const authController = require('../controllers/authController');
+
+
+const router = express.Router();
+
+router.post('/signup',authController.signup);
+router.post('/login',authController.login);
+router.get('/logout',authController.logout);
+router.post('/forgotPassword',authController.forgotPassword);
+router.patch('/resetPassword/:token',authController.resetPassword);
+
+//Prtect all routes after this middleWare
+router.use(authController.protect);
+
+router.patch('/updateMyPassword',authController.updatePassword);
+
+router.get('/me', userController.getMe);
+router.patch('/updateMe',userController.updateMe);
+router.delete('/deleteMe',userController.deleteMe);
+router.patch('/follow', userController.addfollow);
+router.patch('/unfollow', userController.removefollow);
+router.patch('/addWishlist', userController.addMovieWishList);
+router.patch('/removeWishlist', userController.removeMovieWishList);
+
+
+
+
+router.use(authController.restrictTo('admin','contributor'));
+router.post('/addUser',authController.addUserWithoutToken);
+router.route('/').get(userController.getAllUsers).post(userController.createUser);
+router.route('/:id').get(userController.getUser).patch(userController.updateUser).delete(userController.deleteUser);
+
+
+module.exports = router;

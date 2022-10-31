@@ -1,0 +1,691 @@
+<!doctype html>
+<html>
+	<head>
+		
+		<!-- <link rel="stylesheet" href="css/style.css"> -->
+		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		
+
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+		
+		<style>
+			ul > li
+				{
+					margin-right:25px;
+					font-weight:lighter;
+					cursor:pointer
+				}
+				li.active{
+					border-bottom:3px solid silver;
+				}
+
+				.item-photo{
+					display:flex;
+					justify-content:center;
+					align-items:center;
+					border-right:1px solid #f6f6f6;}
+				.menu-items{
+					list-style-type:none;
+					font-size:11px;
+					display:inline-flex;
+					margin-bottom:0;
+					margin-top:20px}
+				.btn-success{
+					width:100%;
+					border-radius:0;}
+				.section{width:100%;
+					margin-left:-15px;
+					padding:2px;
+					padding-left:15px;
+					padding-right:15px;
+					background:#f8f9f9}
+				.title-price{margin-top:30px;
+					margin-bottom:0;
+					color:black}
+				.title-attr{margin-top:0;
+					margin-bottom:0;
+					color:black;}
+				.btn-minus{cursor:pointer;
+					font-size:7px;
+					display:flex;
+					align-items:center;
+					padding:5px;
+					padding-left:10px;
+					padding-right:10px;
+					border:1px solid gray;
+					border-radius:2px;
+					border-right:0;}
+				.btn-plus{cursor:pointer;
+					font-size:7px;
+					display:flex;
+					align-items:center;
+					padding:5px;
+					padding-left:10px;
+					padding-right:10px;
+					border:1px solid gray;
+					border-radius:2px;
+					border-left:0;}
+				div.section > div {
+					width:100%;
+					display:inline-flex;}
+				div.section > div > input {
+					margin:0;padding-left:5px;
+					font-size:10px;
+					padding-right:5px;
+					max-width:18%;
+					text-align:center;}
+				.attr,.attr2{
+					cursor:pointer;
+					margin-right:5px;
+					height:20px;
+					font-size:10px;
+					padding:2px;
+					border:1px solid gray;
+					border-radius:2px;}
+				.attr.active,.attr2.active{ 
+					border:1px solid orange;}
+
+				@media (max-width: 426px) {
+					.container {margin-top:0px !important;}
+					.container > .row{padding:0 !important;}
+					.container > .row > .col-xs-12.col-sm-5{
+						padding-right:0 ;    
+					}
+					.container > .row > .col-xs-12.col-sm-9 > div > p{
+						padding-left:0 !important;
+						padding-right:0 !important;
+					}
+					.container > .row > .col-xs-12.col-sm-9 > div > ul{
+						padding-left:10px !important;
+						
+					}            
+					.section{width:104%;}
+					.menu-items{padding-left:0;}
+				}
+		</style>
+		
+	</head>
+	<body>
+		<div class="container">
+        	<div class="row">
+               <div class="col-xs-4 item-photo">
+                    <img style="max-width:100%;" src="{%IMAGE%}"/>
+                </div>
+                <div class="col-xs-5" style="border:0px solid gray">
+                    <h3>{%TITLE%}</h3>    
+					<h5 style="color:#337ab7">duration: {%RUNTIME%}  <a href="#">  YEAR : {%YEAR%}</a> · <small style="color:#337ab7"> imdb Ratings: {%IMDBRATING%}</small></h5>
+					
+					<br>
+                    <h5 style="margin-top:0px;">{%PLOT%}</h5>
+					<br>
+					<div class="section" style="padding-bottom:10px;">
+						<span class="col-md-4" style="">
+							<h6 class="title-attr" ><small>Type</small></h6>                    
+							<div>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%TYPE%}</small></a>
+							</div>
+						</span>
+						<span class="col-md-4" style="">
+							<h6 class="title-attr" ><small>DVD</small></h6>                    
+							<div>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%DVD%}</small></a>
+							</div>
+						</span>
+						<span class="col-md-4" style="">
+							<h6 class="title-attr" ><small>Votes</small></h6>                    
+							<div>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%IMDBVOTES%}</small></a>
+							</div>
+						</span>
+					</div>
+					<div class="section" style="padding-bottom:5px;">
+						<span class="col-md-6" style="">
+							<h6 class="title-attr" ><small>Director</small></h6>                    
+							<div>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%DIRECTOR%}</small></a>
+							</div>
+						</span>
+                        <span class="col-md-6">
+							<h6 class="title-attr" ><small>Rated</small></h6>                    
+							<div>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%RATED%}</small></a>
+							</div>
+						</span>
+                    </div>
+					<div class="section" style="padding-bottom:5px;">
+                        <h6 class="title-attr"><small>Writers</small></h6>                    
+                        <div style="display:block;">
+							<a href="#">{%WRITERS%}</a>,<a href="#">{%WRITERS%}</a>,<a href="#">{%WRITERS%}</a>,<a href="#">{%WRITERS%}</a>,<a href="#">{%WRITERS%}</a>.
+							<!-- <ul style="list-style:none;">
+								<li><a href="#">Antonio Campos (screenplay by)</a></li>
+								<li><a href="#">Antonio Campos (screenplay by)</a></li>
+								<li><small><a href="#">1 more credit »</a></small></li>
+                    		</ul> -->
+                        </div>
+                    </div>
+					<div class="section" style="padding-bottom:5px;">
+						<span class="col-md-12" style="">
+							<h6 class="title-attr"><small>Actors</small></h6>                    
+							<div>
+								<ul style="list-style:none;">
+									{%ACTORITEM%}
+									<!-- <li><a href="#">Donald Ray Pollock,</a></li>
+									<li><a href="#">Bill Skarsgård,</a></li>
+									<li><a href="#">Tom Holland</a></li> -->
+									<li><small><a href="#">see full cast & crew »</a></small></li>
+								</ul>
+							</div>
+						</span>
+					</div>
+					<div class="section" style="padding-bottom:5px;">
+						<span class="col-md-6" style="">
+							<h6 class="title-attr" ><small>Language</small></h6>                    
+							<div>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%LANGUAGE%}</small></a>
+							</div>
+						</span>
+                        <span class="col-md-6">
+							<h6 class="title-attr" ><small>Country</small></h6>                    
+							<div>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%COUNTRY%}</small></a>
+							</div>
+						</span>
+                    </div>
+					<div class="section" style="padding-bottom:5px;">
+                        <h6 class="title-attr"><small>Rating</small></h6>                    
+                        <div>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">{%IMDBRATING%}</a>&nbsp;&nbsp;&nbsp;
+							<span class="view-stars pull-right">
+							<span class="glyphicon glyphicon-star star-color"></span>
+							<span class="glyphicon glyphicon-star star-color"></span>
+							<span class="glyphicon glyphicon-star star-color"></span>
+							<span class="glyphicon glyphicon-star star-color"></span>
+						  </span>
+                        </div>
+                    </div>
+        
+                    
+                    <div class="section" style="padding-bottom:20px;">
+                        <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-heart" aria-hidden="true"></span> Add to Wishlist</button>
+                    </div>                                        
+                </div>                              
+        
+                <div class="col-xs-9">
+                    <ul class="menu-items">
+                        <li class="active">STORYLINE</li>
+                        <li>DETAILS</li>
+                        <li>USER REVIEWS</li>
+                    </ul>
+                    <!-- <div id="demo" class="to_be_changed active" style="width:100%;border-top:1px solid silver">
+						<p align="right"><a href="#">edit</a></p>
+                        <p style="padding:15px;">
+                            <small>
+                            Set in rural southern Ohio and West Virginia, The Devil All the Time follows a cast of compelling and bizarre characters from the end of World War II to the 1960s. There's Willard Russell, tormented veteran of the carnage in the South Pacific, who can't save his beautiful wife, Charlotte, from an agonizing death by cancer no matter how much sacrificial blood he pours on his "prayer log." There's Carl and Sandy Henderson, a husband-and-wife team of serial killers, who troll America's highways searching for suitable models to photograph and exterminate. There's the spider-handling preacher Roy and his crippled virtuoso-guitar-playing sidekick, Theodore, running from the law. And caught in the middle of all this is Arvin Eugene Russell, Willard and Charlotte's orphaned son, who grows up to be a good but also violent man in his own right.<br><br>
+
+                            </small>
+                        </p>
+						<p><a href="#">Plot Summary</a> | <a href="#">Add Synopsis</a></p>
+					</div> -->
+					
+					<div id="demo" class="to_be_changed active" style="width:100%;border-top:1px solid silver">
+						<div style="margin-top: 3rem;">
+							<span class="col-md-6" style="">
+								<h6 class="title-attr" ><small>Metascore</small></h6>                    
+								<div>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%METASCORE%}</small></a>
+								</div>
+							</span>
+							<span class="col-md-6">
+								<h6 class="title-attr" ><small>IMDB</small></h6>                    
+								<div>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">ID:{%IMDBID%}</small></a>
+									&nbsp;&nbsp;&nbsp;&nbsp;<small style="color:#337ab7">{%IMDBVOTES%} votes</small>
+									&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%IMDBRATING%}</small></a>
+								</div>
+							</span>
+						</div>
+						<div style="margin-top: 5.5rem;">
+							<span class="col-md-4" style="">
+								<h6 class="title-attr" ><small>Type</small></h6>                    
+								<div>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%TYPE%}</small></a>
+								</div>
+							</span>
+							<span class="col-md-4">
+								<h6 class="title-attr" ><small>Released</small></h6>                    
+								<div>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%RELEASEDYEAR%}</small></a>
+								</div>
+							</span>
+							<span class="col-md-4">
+								<h6 class="title-attr" ><small>Rated</small></h6>                    
+								<div>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Category:<a href="#"><small style="color:#337ab7">{%RATED%}</small></a>
+								</div>
+							</span>
+						</div>
+						<div style="margin-top: 10rem;">
+							<span class="col-md-12" style="">
+								<h6 class="title-attr" ><small>Genre</small></h6>                    
+								<div>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%MOVIEGENRE%}</small></a>,<a href="#"><small style="color:#337ab7">{%MOVIEGENRE%}</small></a>,<a href="#"><small style="color:#337ab7">{%MOVIEGENRE%}</small></a>
+								</div>
+							</span>
+						</div>
+						<div style="margin-top: 10.5rem;">
+							<span class="col-md-4" style="">
+								<h6 class="title-attr" ><small>BoxOffice</small></h6>                    
+								<div>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%BOXOFFICE%}</small></a>
+								</div>
+							</span>
+							<span class="col-md-4">
+								<h6 class="title-attr" ><small>Production</small></h6>                    
+								<div>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%PRODUCTION%}</small></a>
+								</div>
+							</span>
+							<span class="col-md-4">
+								<h6 class="title-attr" ><small>Website</small></h6>                    
+								<div>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><small style="color:#337ab7">{%WEBSITE%}</small></a>
+								</div>
+							</span>
+						</div>
+					</div>
+					<!-- <div id="demo"></div> -->
+					
+</div>
+            </div>
+        </div> 
+		<div class="section section-features">
+			<div class="row section-features__heading">
+				<div class="col-md-12">
+					<div><h3>
+						Similar Movies</h3></div>
+					<div><h5>
+						This week's top Movies</h5></div>
+				</div>
+			</div>
+			<div class="container container-carousel">
+				<div class="row">
+					<div class="row">
+						<div class="col-sm-12 ">
+							<!-- Controls -->
+							<div class="controls pull-right hidden-xs sectiion-feature__btn-carousel">
+								<a class="left fa fa-chevron-left btn btn-success" href="#carousel-example"
+									data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-example"
+										data-slide="next"></a>
+							</div>
+						</div>
+					</div>
+					<div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner">
+							<div class="item active">
+								<div class="row">
+									<div class="col-sm-2">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															X-Man</h5>
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="glyphicon glyphicon-heart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+													</div>
+													<div class="rating hidden-sm col-md-6">
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="glyphicon glyphicon-heart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="glyphicon glyphicon-heart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="glyphicon glyphicon-heart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="glyphicon glyphicon-heart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="glyphicon glyphicon-heart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="row">
+									<div class="col-sm-2">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="glyphicon glyphicon-heart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Wishlist</h5>
+													</div>
+													<div class="rating hidden-sm col-md-6">
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="glyphicon glyphicon-heart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="glyphicon glyphicon-heart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="glyphicon glyphicon-heart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="glyphicon glyphicon-heart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div class="col-item">
+											<div class="photo">
+												<img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+											</div>
+											<div class="info">
+												<div class="row">
+													<div class="price col-md-6">
+														<h5>
+															Avengers</h5>
+													</div>
+													<div class="rating hidden-sm col-md-6">
+														<i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+														</i><i class="fa fa-star"></i>
+													</div>
+												</div>
+												<div class="separator clear-left">
+													<p class="btn-add">
+														<i class="glyphicon glyphicon-heart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to Wishlist</a></p>
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+												</div>
+												<div class="clearfix">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function(){
+            //-- Click on detail
+				$("ul.menu-items > li").on("click",function(){
+					$("ul.menu-items > li").removeClass("active");
+					$(this).addClass("active");
+					$("demo").html('<div id="demo" class="to_be_changed active" style="width:100%;border-top:1px solid silver"><p align="right"><a href="#">edit</a></p><p style="padding:15px;"><small>Set in rural southern Ohio and West Virginia, The Devil All the Time follows a cast of compelling and bizarre characters from the end of World War II to the 1960s. Theres Willard Russell, tormented veteran of the carnage in the South Pacific, who cant save his beautiful wife, Charlotte, from an agonizing death by cancer no matter how much sacrificial blood he pours on his "prayer log." Theres Carl and Sandy Henderson, a husband-and-wife team of serial killers, who troll Americas highways searching for suitable models to photograph and exterminate. Theres the spider-handling preacher Roy and his crippled virtuoso-guitar-playing sidekick, Theodore, running from the law. And caught in the middle of all this is Arvin Eugene Russell, Willard and Charlottes orphaned son, who grows up to be a good but also violent man in his own right.<br><br></small></p><p><a href="#">Plot Summary</a><a href="#">Add Synopsis</a></p></div>');
+				});
+
+                       
+        	});
+		</script>
+	</body>
+</html>

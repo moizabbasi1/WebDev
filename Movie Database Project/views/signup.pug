@@ -1,0 +1,25 @@
+extends base
+
+block extrastuff
+  link(rel="stylesheet" href="./../signUp/style.css")
+
+block content
+  main.main
+    .login-form.signUp-form
+      h2.heading-secondary.ma-bt-lg Sign Up
+      h5.heading-fifth.ma-bt-sm Please fill in this form to create an Account
+      form.form.signUpForm
+        .form__group
+          label.form__label(for='userName') User Name
+          input#username.form__input(type='text', placeholder='moiz786', required)
+        .form__group
+          label.form__label(for='email') Email address
+          input#email.form__input(type='email', placeholder='you@example.com', required)
+        .form__group.ma-bt-md
+          label.form__label(for='password') Password
+          input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+        .form__group.ma-bt-md
+          label.form__label(for='passwordConfirm') Password Confirm
+          input#passwordConfirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
+        .form__group
+          button.btn.btn--orange Sign Up

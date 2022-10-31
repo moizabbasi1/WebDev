@@ -1,0 +1,48 @@
+extends base
+
+include _sidebarUser
+
+block extrastuff
+  link(rel="stylesheet" href="./../user/style.css")
+  link(rel="stylesheet" href= "./../login/style.css")
+  
+block content
+  .container
+    .row.profile
+      .col-md-3
+        +sidebar(user)
+          
+      .col-md-9
+        main.main
+          .login-form
+            h2.heading-secondary.ma-bt-lg Enter the User Data
+            form.form.add-User
+              .form__group
+                label.form__label(for='name') User Name
+                input#name.form__input(type='text', placeholder='moiz Ahmed', required)
+              .form__group
+                label.form__label(for='email') Email address
+                input#email.form__input(type='email', placeholder='you@example.com', required)
+              .form__group
+                label.form__label(for='DOB') DOB
+                input#DOB.form__input(type='date', placeholder='1994/12/11')
+              .form__group
+                label.form__label(for='city') City
+                input#city.form__input(type='text', placeholder='e.g. Ottawa')
+              .form__group
+                label.form__label(for='country') Country
+                input#country.form__input(type='text', placeholder='e.g. Canada')
+              .form__group
+                label.form__label(for='about') About
+                textarea#about.form__input(type= 'text', placeholder='Write About Yourself....')
+
+              .form__group.ma-bt-md
+                label.form__label(for='password') Password
+                input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+              .form__group.ma-bt-md
+                label.form__label(for='passwordConfirm') Password Confirm
+                input#passwordConfirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
+                
+              .form__group
+                button.btn.btn--green Add User
+                

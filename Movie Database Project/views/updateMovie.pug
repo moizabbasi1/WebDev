@@ -1,0 +1,64 @@
+extends base
+
+include _sidebarUser
+
+block extrastuff
+  link(rel="stylesheet" href="./../login/style.css")
+  
+block content
+  .container
+    .row.profile
+      .col-md-3
+        +sidebar(user)
+          
+      .col-md-9
+        main.main
+          .login-form
+            h2.heading-secondary.ma-bt-lg Enter the Movie Data
+            form.form.loginForm.searchUser
+              .form__group
+                label.form__label(for='title') title
+                input#title.form__input(type='text', placeholder='moiz786', required)
+              .form__group
+                label.form__label(for='year') year
+                input#year.form__input(type='number', placeholder='you@example.com', required)
+              .form__group
+                label.form__label(for='rated') rated
+                input#rated.form__input(type='text', placeholder='1994/12/11')
+              .form__group
+                label.form__label(for='released') released date
+                input#released.form__input(type='date', placeholder='e.g. ')
+              .form__group
+                label.form__label(for='runtime') runtime(num of minutes)
+                input#runtime.form__input(type='number', placeholder='e.g. Canada', required)
+              .form__group
+                label.form__label(for='userName') genre
+                input#username.form__input(type='text', placeholder='About Yourself', required)
+              .form__group
+                label.form__label(for='userName') plot
+                input#username.form__input(type='text', placeholder='About Yourself', required)
+              .form__group
+                label.form__label(for='userName') Summary
+                input#username.form__input(type='text', placeholder='About Yourself')
+              .form__group
+                label.form__label(for='userName') language
+                input#username.form__input(type='text', placeholder='About Yourself', required)
+              .form__group
+                label.form__label(for='userName') country
+                input#username.form__input(type='text', placeholder='About Yourself', required)
+              .form__group
+                label.form__label(for='userName') awards
+                input#username.form__input(type='text', placeholder='About Yourself')
+              .form__group
+                label.form__label(for='userName') poster(img string)
+                input#username.form__input(type='text', placeholder='About Yourself', required)
+              .form__group
+                label.form__label(for='userName') ImdbRating
+                input#username.form__input(type='number', placeholder='About Yourself', required)
+              .form__group
+                label.form__label(for='userName') type
+                input#username.form__input(type='text', placeholder='About Yourself', required)
+                  
+              .form__group
+                button.btn.btn--green Add Movie
+                

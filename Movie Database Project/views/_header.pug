@@ -1,0 +1,15 @@
+header
+  div.container-header
+    a(href='/')
+      h2.logo.active Movies
+    nav
+      if user 
+        a.nav__el(href="#") Watchlist
+        a.nav__el.nav__el--logout Logout
+        a(href="/me")
+          img(src= 'http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_5_1.png' alt=`img`)
+          span= user.name.split(' ')[0].toUpperCase()
+      else
+        a.nav__el(href="#") Watchlist
+        a.nav__el(href="/login") Login
+        a.nav__el(href="/signUp") Sign Up

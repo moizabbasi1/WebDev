@@ -1,0 +1,27 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "Node, Express and MongoDb",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Moiz",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.4",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.4.16",
+    "pug": "^3.0.0",
+    "slugify": "^1.4.6",
+    "uuid": "^8.3.2",
+    "validator": "^13.5.1"
+  }
+}

@@ -1,0 +1,210 @@
+extends base
+
+block extrastuff
+  link(rel="stylesheet" href="./../MoviePage/css/style.css")
+
+block content
+  .container
+    .row
+      .col-xs-4.item-photo
+        img(style="max-width:100%;" src= `${movie.poster}`)
+      .col-xs-5(style="border:0px solid gray")
+        h3 #{movie.title}
+        h5(style="color:#337ab7") duration: #{movie.runtime} min
+          a(href="#")  Year : #{movie.year}
+          small(style="color:#337ab7") Ratings: #{movie.ratingAverage}
+          br
+          br
+          h5(style="margin-top:0px;") #{movie.plot}
+					
+          .section(style="padding-bottom:10px;")
+            span.col-md-4
+              h6.title-attr
+                small Type
+              .div
+                a(href="#" style="color:#337ab7") #{movie.type}
+            span.col-md-4
+              h6.title-attr
+                small DVD
+              .div
+                a(href="#")
+                small(style="color:#337ab7") #{movie.DVD}
+            span.col-md-4
+              h6.title-attr
+                small Votes
+              .div
+                a(href="#")
+                  small(style="color:#337ab7") #{movie.imdbVotes}
+                
+          .section(style="padding-bottom:5px;")
+            span.col-md-6
+              h6.title-attr
+                small Director
+              .div
+                a(href=`/peoples/${movie.director[0].slug}` style="color:#337ab7") #{movie.director[0].name}
+            span.col-md-6
+              h6.title-attr
+                small Rated
+              .div
+                a(href="#")
+                  small(style="color:#337ab7") #{movie.rated}
+          
+          .section(style="padding-bottom:5px;")
+            span.col-lg-12
+              h6.title-attr
+                small Writers
+                .div(style="display:block;")
+                  each writer in movie.writer
+                    a(href=`/peoples/${writer.slug}`) #{writer.name},
+                  
+                  
+          .section(style="padding-bottom:5px;")
+            span.col-md-12
+              h6.title-attr
+                small Actors
+              .div
+                ul(style="list-style:none;")
+                  each actor in movie.actors
+                    li
+                      a(href=`/peoples/${actor.slug}`) #{actor.name},
+           
+          .section(style="padding-bottom:5px;")
+            span.col-md-6
+              h6.title-attr
+                small Language
+              .div(style="color:#337ab7") #{movie.language}
+            span.col-md-6
+              h6.title-attr
+                small Country
+              .div(style="color:#337ab7") #{movie.country}
+          
+          .section(style="padding-bottom:5px;")
+            span.col-md-12
+              h6.title-attr
+                small Rating
+              .div
+                a(href="#" style="color:#337ab7") #{movie.ratingAverage}
+                span.view-stars.pull-right
+                span.glyphicon.glyphicon-star.star-color
+                span.glyphicon.glyphicon-star.star-color  
+                span.glyphicon.glyphicon-star.star-color  
+                span.glyphicon.glyphicon-star.star-color
+          
+          .section(style="padding-bottom:20px;")
+            button.btn.btn-success
+              a(href="#" style="color:#fff; text-decoration:none; cursor:pointer;")
+                span.glyphicon.glyphicon-heart(style="margin-right:20px" aria-hidden="true") Add to Wishlist
+        
+      .col-xs-9
+        ul.menu-items
+          li.active STORYLINE
+        .to_be_changed.active(id="demo" style="width:100%;border-top:1px solid silver")
+          p(align="right")
+            a(href="#") edit
+          p(style="padding:15px;")
+            small #{movie.plot}
+            br
+            br
+          p
+            a(href="#") Plot Summary |
+            a(href="#") Add Synopsis
+      
+      .col-xs-9
+        ul.menu-items
+          li.active USER REVIEWS
+        .to_be_changed.active(id="demo" style="width:100%;border-top:1px solid silver")
+          each review in movie.reviews
+            .div User review
+              p(style="padding:15px;")
+                small #{review.review}  
+          br
+          br
+            
+      .col-xs-9
+        ul.menu-items
+          li.active DETAILS
+        .to_be_changed.active(id="demo" style="width:100%;border-top:1px solid silver")
+          .div(style="margin-top: 3rem;")
+            span.col-md-6
+              h6.title-attr Metascore
+              .div
+                a(href="#")
+                small(style="color:#337ab7") #{movie.metascore}
+            span.col-md-6
+              h6.title-attr IMDB
+              .div
+                a(href="#")
+                small(style="color:#337ab7") ID: #{movie.imdbID},
+                small(style="color:#337ab7") #{movie.imdbVotes} Votes,
+                a(href="#") 
+                small(style="color:#337ab7") #{movie.imdbRating} Rating.
+          
+          .div(style="margin-top: 8rem;")
+            span.col-md-4
+              h6.title-attr Type
+              .div
+                a(href="#")
+                small(style="color:#337ab7") #{movie.type}
+            span.col-md-4
+              h6.title-attr Released
+              .div
+                a(href="#")
+                small(style="color:#337ab7") #{movie.released}
+            span.col-md-4
+              h6.title-attr Rated
+              .div Category: 
+                a(href="#")
+                small(style="color:#337ab7") #{movie.rated}
+          
+          .div(style="margin-top: 10rem;")
+            span.col-md-12
+              h6 Genre
+              each genre in movie.genre
+                a(href="#" style="color:#337ab7") #{genre}
+          
+          .div(style="margin-top: 8.6rem;")
+            span.col-md-4
+              h6.title-attr BoxOffice
+              .div
+                a(href="#")
+                small(style="color:#337ab7") #{movie.boxOffice}
+            span.col-md-4
+              h6.title-attr Production
+              .div
+                a(href="#")
+                small(style="color:#337ab7") #{movie.productions}
+            span.col-md-4
+              h6.title-attr Website
+              .div 
+                a(href="#")
+                small(style="color:#337ab7") #{movie.website}
+                
+                
+    .movies-recommends
+      .container-title-controles
+        h3 Similar Movies
+        .indicator
+      .container-principal
+        button.btn-left(role="button" id="btn-left")
+          i.fas.fa-angle-left
+        .container-carousel
+          .carousel
+            each movie in similarMovies
+              .carousel-img
+                a(href=`/movie/${movie.slug}`)
+                  img(src= `${movie.poster}` alt= `Title Photo`)
+        button.btn-right(role="button" id="btn-right")
+          i.fas.fa-angle-right
+          
+          
+      
+            
+                    
+                  
+
+          
+            
+                
+          
+          
+                

@@ -1,0 +1,57 @@
+extends base
+
+
+block content
+  .container(style="position: relative;")
+    .carousel-slide(id='myCarousel' data-ride='carousel')
+      .carousel-inner
+        each movie in movies
+          .item(class= (movie.id === movies[0].id ? 'active' : ''))
+            img(src= `${movie.poster}`)
+            .carousel-caption
+              h4
+                a(href=`/movie/${movie.slug}`)= `${movie.awards}`
+              p= movie.plot
+                a.label.label-primary(href=`/movie/${movie.slug}`)= `${movie.title}`
+      ul.list-group.col-sm-4
+        each movie in movies
+          li.list-group-item(class= (movie.id === movies[0].id ? 'active' : '') data-target='#myCarousel' data-slide-to=`${movie.id}`)
+            h4= `${movie.title}`
+      .carousel-controls
+        a.left.carousel-control(href='#myCarousel' data-slide='prev')
+          span.glyphicon.glyphicon-chevron-left
+        a.right.carousel-control(href='#myCarousel' data-slide='next')
+          span.glyphicon.glyphicon-chevron-right
+    
+  .movies-recommends
+    .container-title-controles
+      h3 Week's top
+      .indicator
+    .container-principal
+      button.btn-left(role="button" id="btn-left")
+        i.fas.fa-angle-left
+      .container-carousel
+        .carousel
+          each movie in featuredMovies
+            .carousel-img
+              a(href=`/movie/${movie.slug}`)
+                img(src= `${movie.poster}` alt= `Title Photo`)
+      button.btn-right(role="button" id="btn-right")
+        i.fas.fa-angle-right
+  
+  .movies-recommends
+    .container-title-controles
+      h3 Featured Movies
+      .indicator
+    .container-principal
+      button.btn-left(role="button" id="btn-left")
+        i.fas.fa-angle-left
+      .container-carousel
+        .carousel
+          each movie in recommendedMovies
+            .carousel-img
+              a(href=`/movie/${movie.slug}`)
+                img(src= `${movie.poster}` alt= `Title Photo`)
+      button.btn-right(role="button" id="btn-right")
+        i.fas.fa-angle-right
+        

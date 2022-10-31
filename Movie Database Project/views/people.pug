@@ -1,0 +1,71 @@
+extends base
+
+block extrastuff
+  link(rel="stylesheet" href="./../user/style.css")
+  link(rel="stylesheet" href= "./../login/style.css")
+
+block content
+  .container
+    .row.profile
+      .col-md-3
+        .profile-sidebar
+          .profile-userpic
+            
+            img.img-responsive(src='./../user/profile.png' alt='profile-img')
+          
+          .profile-usertitle
+            .profile-usertitle-name #{people.name}
+            //- .profile-usertitle-job PROFESSION
+          
+          .profile-userbuttons
+            //- button.btn.btn-success.btn-sm(type="button") Follow
+            //- button.btn.btn-primary.btn-sm(type="button") Followers
+            //- button.btn.btn-info.btn-sm(type="button") Followed
+          
+          .profile-usermenu
+            h2 PEOPLE
+            ul.nav
+              li.active
+                a(href="#overview")
+                  i.glyphicon.glyphicon-home User Overview
+                 
+            .line
+            //- h2 For Peoples
+            ul.nav.nav-hide
+              li
+                a(href="#")
+                  i.glyphicon.glyphicon-ok Collaborations
+              li
+                a(href="#Filmography")
+                  i.glyphicon.glyphicon-film Filmography
+              
+              
+          
+      .col-md-9
+        .profile-content
+          .div(id='overview')
+            h2 Bio
+            p #{people.about}
+          .personal-detail
+            h5 Born:
+            .time
+              a(href="#") #{people.DOB}
+              text(style="text-transform: none;") in
+              a(href="#" style="text-decoration: none;text-transform: none;") #{people.city} , #{people.country}
+          
+          .movies-recommends(id='Filmography')
+            .container-title-controles
+              h3 Person Work history
+              .indicator
+            .container-principal
+              button.btn-left(role="button" id="btn-left")
+                i.fas.fa-angle-left
+              .container-carousel
+                .carousel
+                  each movie in people.movie
+                    .carousel-img
+                      a(href=`/movie/${movie.slug}`)
+                        img(src= `${movie.poster}` alt= `Title Photo`)
+              button.btn-right(role="button" id="btn-right")
+                i.fas.fa-angle-right    
+          

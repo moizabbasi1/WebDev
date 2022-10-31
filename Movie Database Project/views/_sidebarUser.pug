@@ -1,0 +1,79 @@
+mixin sidebar(user)
+  .profile-sidebar
+    .profile-userpic
+      
+      img.img-responsive(src='./../user/profile.png' alt='profile-img')
+    
+    .profile-usertitle
+      .profile-usertitle-name #{user.name}
+      //- .profile-usertitle-job PROFESSION
+    
+    .profile-userbuttons
+      button.btn.btn-success.btn-sm(type="button") Follow
+      //- button.btn.btn-primary.btn-sm(type="button") Followers
+      //- button.btn.btn-info.btn-sm(type="button") Followed
+    
+    .profile-usermenu
+      h2 USER
+      ul.nav
+        li.active
+          a(href="#overview")
+            i.glyphicon.glyphicon-home User Overview
+        li
+          a(href="#setting")
+            i.glyphicon.glyphicon-user Account Settings
+        li
+          a(href="#reviews")
+            i.glyphicon.glyphicon-pencil User Reviews
+        li
+          a(href="#watch")
+            i.glyphicon.glyphicon-triangle-right Watched Movies
+        li
+          a(href="#follower")
+            i.glyphicon.glyphicon-triangle-right Followers
+        li
+          a(href="#followings")
+            i.glyphicon.glyphicon-triangle-right Followings 
+        li
+            a(href="/users")
+              i.glyphicon.glyphicon-plus GET ALL USERS   
+      - if(user.role === 'contributor')
+        .line
+        h2 Contributer User
+        ul.nav.nav-hide.nav-hide__admin
+          li
+            a(href="/AddUserForm")
+              i.glyphicon.glyphicon-plus ADD USER
+          li
+            a(href="/AddMovieForm")
+              i.glyphicon.glyphicon-plus ADD MOVIE
+          li
+            a(href="/search")
+              i.glyphicon.glyphicon-edit UPDATE MOVIE
+              //- <i class="glyphicon glyphicon-edit"></i>
+      - if(user.role === 'admin')   
+        .line
+        h2 Admin	
+        ul.nav.nav-hide.nav-hide__admin
+          li
+            a(href="/peoples")
+              i.glyphicon.glyphicon-plus GET ALL PEOPLE
+          li
+            a(href="/AddUserForm")
+              i.glyphicon.glyphicon-plus Add User
+          li
+            a(href="/AddMovieForm")
+              i.glyphicon.glyphicon-plus Add Movie
+          li
+            a(href="/search")
+              i.glyphicon.glyphicon-edit Update Movie
+          li
+            a(href="/search")
+              i.glyphicon.glyphicon-edit Update User
+          li
+            a(href="/deleteSearchMovie")
+              i.glyphicon.glyphicon-trash Delete Movie
+          li
+            a(href="/deleteSearchUser")
+              i.glyphicon.glyphicon-trash Delete User
+              

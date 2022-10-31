@@ -1,0 +1,53 @@
+extends base
+
+include _sidebarUser
+
+block extrastuff
+  link(rel="stylesheet" href="./../user/style.css")
+  link(rel="stylesheet" href= "./../login/style.css")
+  
+block content
+  .container
+    .row.profile
+      .col-md-3
+        +sidebar(user)
+          
+      .col-md-9
+        main.main
+          .login-form
+            h2.heading-secondary.ma-bt-lg Enter the Movie Data
+            form.form.movie-data
+              .form__group
+                label.form__label(for='title') Movie Name
+                input#title.form__input(type='text', placeholder='e.g Avangers', required)
+              .form__group
+                label.form__label(for='year') Movie Year
+                input#year.form__input(type='number', placeholder='e.g 1995', required)
+              .form__group
+                label.form__label(for='runtime') Runtime Minutes
+                input#runtime.form__input(type='number', placeholder='e.g. 90', required)
+              .form__group
+                label.form__label(for='plot') Movie Story Line
+                textarea#plot.form__input(type='text', placeholder='Write PLot.........', required)
+              .form__group
+                label.form__label(for='genre') Genre
+                input#genre.form__input(type='text', placeholder='Comedy, Action', required)
+              .form__group
+                label.form__label(for='language') Language
+                input#language.form__input(type='text', placeholder='e.g English', required)
+              .form__group
+                label.form__label(for='country') Country
+                input#country.form__input(type='text', placeholder='.e.g USA', required)
+              .form__group
+                label.form__label(for='poster') Movie Poster
+                input#poster.form__input(type='text', placeholder='e.g. http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/alien_1_3.png', required)
+              .form__group
+                label.form__label(for='imdbRating') ImdbRating
+                input#imdbRating.form__input(type='number', placeholder='e.g 8', required)
+              .form__group
+                label.form__label(for='type') Type
+                input#type.form__input(type='text', placeholder='e.g. movie', required)
+                  
+              .form__group
+                button.btn.btn--green Add Movie
+                

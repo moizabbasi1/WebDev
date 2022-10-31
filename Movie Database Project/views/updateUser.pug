@@ -1,0 +1,47 @@
+extends base
+
+include _sidebarUser
+
+block extrastuff
+  link(rel="stylesheet" href="./../user/style.css")
+  link(rel="stylesheet" href= "./../login/style.css")
+  
+block content
+  .container
+    .row.profile
+      .col-md-3
+        +sidebar(user)
+          
+      .col-md-9
+        main.main
+          .login-form
+            h2.heading-secondary.ma-bt-lg Enter the Updated Data
+            form.form.update-User(action='/submit-user-data' method='POST')
+              .form__group
+                label.form__label(for='prevName') Previous Name
+                input#prevName.form__input(type='text', value=`${userSearch.name}`, required, name= 'prevName', readonly)
+              .form__group
+                label.form__label(for='name') Name
+                input#name.form__input(type='text', value=`${userSearch.name}`, required, name= 'name')
+              .form__group
+                label.form__label(for='email') Email address
+                input#email.form__input(type='email', value=`${userSearch.email}`, required, name= 'email')
+              .form__group
+                label.form__label(for='role') Role
+                input#role.form__input(type= 'text', value=`${userSearch.role}`, required, name= 'role')
+              .form__group
+                label.form__label(for='DOB') DOB
+                input#DOB.form__input(type='date', value=`${userSearch.DOB}`, name= 'DOB')
+              .form__group
+                label.form__label(for='city') City
+                input#city.form__input(type='text', value=`${userSearch.city}`, name= 'city')
+              .form__group
+                label.form__label(for='country') Country
+                input#country.form__input(type='text', value=`${userSearch.country}`, name= 'country')
+              .form__group
+                label.form__label(for='about') About
+                textarea#about.form__input(type= 'text', value=`${userSearch.about}`, name= 'about')
+                
+              .form__group
+                button.btn.btn--green Update User
+                

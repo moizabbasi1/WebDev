@@ -1,0 +1,35 @@
+extends base
+
+include _sidebarUser
+
+block extrastuff
+  link(rel="stylesheet" href="./../user/style.css")
+  link(rel="stylesheet" href= "./../login/style.css")
+  
+block content
+  .container
+    .row.profile
+      .col-md-3
+        +sidebar(user)
+          
+      .col-md-9
+        .container(id='all-user')
+          .row
+            .col-md-8.col-xs-12
+              .panel(id="followers")
+                .panel-heading
+                  h3.panel-title
+                    i.icon.md-check(aria-hidden="true") All #{text}
+                .panel-body
+                  ul.list-group.list-group-dividered.list-group-full
+                    each user in users
+                      li.list-group-item
+                        .media
+                          .media-left
+                            a.avatar.avatar-online(href=`/${url}/${user.slug}`)
+                              img(src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="")
+                              i
+                          .media-body
+                            div
+                              a.name(href=`/${url}/${user.slug}`) #{user.name}
+                            small #{user.email}
